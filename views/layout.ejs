@@ -2,26 +2,50 @@
 <html lang="fr" class="h-full">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title><%= typeof title !== 'undefined' ? title + ' • ' : '' %>Wolf Panel</title>
+
   <!-- Tailwind CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
-    tailwind.config = { theme: { extend: { colors: { wolf: { primary: '#2b82f6' } } } } }
+    // Accent par défaut = rouge (#dc2626) ; on garde la possibilité de surcharger via EJS (theme)
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            wolf: { accent: '<%= (theme && theme.accent) ? theme.accent : "#dc2626" %>' }
+          },
+          borderRadius: {
+            xl2: '1.25rem'
+          }
+        }
+      }
+    }
   </script>
+
+  <style>
+    :root{
+      --accent: <%= (theme && theme.accent) ? theme.accent : "#dc2626" %>;
+      --radius: <%= (theme && theme.radius != null) ? theme.radius : 14 %>px;
+    }
+    .btn-accent{ background:var(--accent); color:#fff; }
+    .chip   { border:1px solid rgb(39 39 42 / 1); background: rgb(24 24 27 / .7); }
+    .card   { border:1px solid rgb(39 39 42 / 1); background: rgb(24 24 27 / .6); border-radius: var(--radius); backdrop-filter: blur(6px); }
+  </style>
 </head>
-<body class="h-full bg-zinc-950 text-zinc-100">
+<body class="h-full <%= (theme && theme.mode)==='light' ? 'bg-zinc-50 text-zinc-900' : 'bg-zinc-950 text-zinc-100' %>">
   <div class="min-h-full">
     <!-- Header -->
     <header class="border-b border-zinc-800 bg-zinc-900/70 backdrop-blur">
       <div class="mx-auto max-w-6xl px-4 py-3 flex items-center justify-between">
         <a href="/" class="flex items-center gap-2 text-zinc-100">
-          <span class="inline-block h-3 w-3 rounded-full bg-wolf-primary"></span>
-          <span class="font-semibold tracking-wide">Wolf • Panel</span>
+          <span class="inline-block h-3 w-3 rounded-full" style="background: var(--accent)"></span>
+          <span class="font-semibold tracking-wide"><%= (theme && theme.brand) ? theme.brand : 'Wolf' %> • Panel</span>
         </a>
         <nav class="flex items-center gap-4 text-sm text-zinc-300">
           <a href="/" class="hover:text-white">Accueil</a>
           <a href="/tickets" class="hover:text-white">Tickets</a>
+          <a href="/theme" class="hover:text-white">Thème</a>
         </nav>
       </div>
     </header>
