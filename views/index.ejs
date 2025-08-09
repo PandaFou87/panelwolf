@@ -1,6 +1,4 @@
-<!-- Home • Dark / Modern / Glassy • accent rouge -->
 <section class="relative overflow-hidden">
-  <!-- fond dégradé -->
   <div class="pointer-events-none absolute inset-0 -z-10">
     <div class="absolute -top-48 left-1/2 -translate-x-1/2 h-[720px] w-[1200px] rounded-full blur-3xl opacity-20"
          style="background: radial-gradient(40% 40% at 50% 50%, var(--accent) 0%, rgba(239,68,68,0) 70%)"></div>
@@ -8,7 +6,6 @@
          style="background: radial-gradient(40% 40% at 50% 50%, #8b5cf6 0%, rgba(139,92,246,0) 70%)"></div>
   </div>
 
-  <!-- hero -->
   <div class="mx-auto max-w-6xl px-4 pt-10 pb-12">
     <div class="flex flex-col gap-8 md:flex-row md:items-center md:justify-between">
       <div class="max-w-2xl">
@@ -20,8 +17,7 @@
           Configure <span style="color: var(--accent)">Wolf</span> sans prise de tête
         </h1>
         <p class="mt-3 text-zinc-400">
-          Gère tes modules (Tickets, Suggestions, Candidatures, Permissions…) depuis une interface claire,
-          inspirée des dashboards modernes.
+          Gère tes modules (Tickets, Suggestions, Candidatures, Permissions…) depuis une interface claire.
         </p>
         <div class="mt-6 flex flex-wrap gap-3">
           <a href="/tickets" class="btn-accent rounded-xl px-5 py-2.5 text-sm font-medium hover:opacity-90">Configurer les tickets</a>
@@ -29,7 +25,6 @@
         </div>
       </div>
 
-      <!-- sélecteur de serveur (mock) -->
       <div class="w-full max-w-md card p-5">
         <h3 class="mb-3 text-sm font-medium text-zinc-300">Serveur à configurer</h3>
         <div class="grid gap-3">
@@ -40,34 +35,34 @@
                   onclick="const g=document.getElementById('guildInput').value.trim(); if(!g) return alert('Entre un guildId'); location.href='/app/guild?guildId='+encodeURIComponent(g)">
             Ouvrir la configuration
           </button>
-          <p class="text-xs text-zinc-500">Astuce : plus tard on pourra connecter OAuth Discord pour choisir parmi tes guilds.</p>
+          <p class="text-xs text-zinc-500">Plus tard : sélection via OAuth Discord.</p>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- modules -->
   <div id="modules" class="mx-auto max-w-6xl px-4 pb-16">
     <div class="grid gap-6 md:grid-cols-3">
-      <!-- Tickets -->
-      <a href="/tickets"
-         class="group card p-5 transition hover:border-zinc-700 hover:bg-zinc-900">
-        <div class="mb-3 inline-flex h-9 w-9 items-center justify-center rounded-lg bg-zinc-800/80 group-hover:bg-zinc-800">
-          📨
-        </div>
+      <a href="/tickets" class="group card p-5 transition hover:border-zinc-700 hover:bg-zinc-900">
+        <div class="mb-3 inline-flex h-9 w-9 items-center justify-center rounded-lg bg-zinc-800/80 group-hover:bg-zinc-800">📨</div>
         <h3 class="text-lg font-semibold">Tickets</h3>
-        <p class="mt-1 text-sm text-zinc-400">
-          Définis le salon de logs, les rôles staff, les couleurs d’embed, etc.
-        </p>
+        <p class="mt-1 text-sm text-zinc-400">Salon de logs, rôles staff, couleurs d’embed…</p>
         <div class="mt-3 text-sm" style="color: var(--accent)">Configurer →</div>
       </a>
 
-      <!-- Suggestions -->
-      <a href="/suggestions"
-         class="group card p-5 transition hover:border-zinc-700 hover:bg-zinc-900">
-        <div class="mb-3 inline-flex h-9 w-9 items-center justify-center rounded-lg bg-zinc-800/80 group-hover:bg-zinc-800">
-          💡
-        </div>
+      <a href="/suggestions" class="group card p-5 transition hover:border-zinc-700 hover:bg-zinc-900">
+        <div class="mb-3 inline-flex h-9 w-9 items-center justify-center rounded-lg bg-zinc-800/80 group-hover:bg-zinc-800">💡</div>
         <h3 class="text-lg font-semibold">Suggestions</h3>
-        <p class="mt-1 text-sm text-zinc-400">
-          Canal cible, statut auto, réactions, workflow…
+        <p class="mt-1 text-sm text-zinc-400">Canal cible, réactions, workflow…</p>
+        <div class="mt-3 text-sm text-zinc-400">Bientôt</div>
+      </a>
+
+      <a href="/candidatures" class="group card p-5 transition hover:border-zinc-700 hover:bg-zinc-900">
+        <div class="mb-3 inline-flex h-9 w-9 items-center justify-center rounded-lg bg-zinc-800/80 group-hover:bg-zinc-800">📝</div>
+        <h3 class="text-lg font-semibold">Candidatures</h3>
+        <p class="mt-1 text-sm text-zinc-400">Formulaires, salons de review, rôles…</p>
+        <div class="mt-3 text-sm text-zinc-400">Bientôt</div>
+      </a>
+    </div>
+  </div>
+</section>
