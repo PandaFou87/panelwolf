@@ -8,15 +8,11 @@
   <!-- Tailwind CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
-    // Accent par défaut = rouge (#dc2626) ; on garde la possibilité de surcharger via EJS (theme)
     tailwind.config = {
       theme: {
         extend: {
           colors: {
             wolf: { accent: '<%= (theme && theme.accent) ? theme.accent : "#dc2626" %>' }
-          },
-          borderRadius: {
-            xl2: '1.25rem'
           }
         }
       }
@@ -29,8 +25,8 @@
       --radius: <%= (theme && theme.radius != null) ? theme.radius : 14 %>px;
     }
     .btn-accent{ background:var(--accent); color:#fff; }
-    .chip   { border:1px solid rgb(39 39 42 / 1); background: rgb(24 24 27 / .7); }
-    .card   { border:1px solid rgb(39 39 42 / 1); background: rgb(24 24 27 / .6); border-radius: var(--radius); backdrop-filter: blur(6px); }
+    .chip   { border:1px solid rgb(39 39 42); background: rgb(24 24 27 / .7); }
+    .card   { border:1px solid rgb(39 39 42); background: rgb(24 24 27 / .6); border-radius: var(--radius); backdrop-filter: blur(6px); }
   </style>
 </head>
 <body class="h-full <%= (theme && theme.mode)==='light' ? 'bg-zinc-50 text-zinc-900' : 'bg-zinc-950 text-zinc-100' %>">
@@ -45,7 +41,6 @@
         <nav class="flex items-center gap-4 text-sm text-zinc-300">
           <a href="/" class="hover:text-white">Accueil</a>
           <a href="/tickets" class="hover:text-white">Tickets</a>
-          <a href="/theme" class="hover:text-white">Thème</a>
         </nav>
       </div>
     </header>
