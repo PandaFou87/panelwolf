@@ -1,11 +1,26 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8" />
-  <title>Panel - Wolf</title>
-</head>
-<body>
-  <h1>Bienvenue sur le panel de Wolf</h1>
-  <a href="/tickets">Configurer les tickets</a>
-</body>
-</html>
+<section class="grid gap-6 md:grid-cols-3">
+  <div class="col-span-2 rounded-2xl border border-zinc-800 bg-zinc-900 p-6 shadow">
+    <h1 class="text-2xl font-semibold mb-2">Bienvenue sur le panel de <span class="text-wolf-primary"><%= botName %></span></h1>
+    <p class="text-zinc-400">Gère la configuration de ton bot via une interface claire.</p>
+
+    <div class="mt-6 grid gap-4 sm:grid-cols-2">
+      <a href="/tickets" class="rounded-xl border border-zinc-800 bg-zinc-900 p-4 hover:bg-zinc-800 transition">
+        <div class="text-sm text-zinc-400">Module</div>
+        <div class="text-lg font-medium">Tickets</div>
+        <div class="mt-2 text-xs text-zinc-500">Configurer salon logs, rôles autorisés, couleur d’embed…</div>
+      </a>
+      <a href="#" class="rounded-xl border border-zinc-800 bg-zinc-900 p-4 opacity-50 cursor-not-allowed">
+        <div class="text-sm text-zinc-400">Bientôt</div>
+        <div class="text-lg font-medium">Suggestions</div>
+      </a>
+    </div>
+  </div>
+
+  <aside class="rounded-2xl border border-zinc-800 bg-zinc-900 p-6 shadow">
+    <h2 class="text-lg font-semibold mb-3">Raccourcis</h2>
+    <ul class="text-sm text-zinc-300 space-y-2">
+      <li>• <a href="/tickets" class="text-wolf-primary hover:underline">Configurer les tickets</a></li>
+    </ul>
+  </aside>
+</section>
+
