@@ -4,6 +4,7 @@ const rateLimit = require('express-rate-limit');
 const axios = require('axios');
 const bodyParser = require('body-parser');
 const path = require('path');
+const expressLayouts = require('express-ejs-layouts');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -35,3 +36,4 @@ app.get('/tickets', (req, res) => {
 app.listen(PORT, () => {
     console.log(`[Panel] en ligne sur le port ${PORT}`);
 });
+
