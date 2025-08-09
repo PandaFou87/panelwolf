@@ -1,26 +1,91 @@
-<section class="grid gap-6 md:grid-cols-3">
-  <div class="col-span-2 rounded-2xl border border-zinc-800 bg-zinc-900 p-6 shadow">
-    <h1 class="text-2xl font-semibold mb-2">Bienvenue sur le panel de <span class="text-wolf-primary"><%= botName %></span></h1>
-    <p class="text-zinc-400">Gère la configuration de ton bot via une interface claire.</p>
+<!-- Home • Dark / Modern / Glassy -->
+<section class="relative overflow-hidden">
+  <!-- bg gradient -->
+  <div class="pointer-events-none absolute inset-0 -z-10">
+    <div class="absolute -top-40 left-1/2 -translate-x-1/2 h-[700px] w-[1200px] rounded-full blur-3xl opacity-20"
+         style="background: radial-gradient(40% 40% at 50% 50%, #2b82f6 0%, rgba(43,130,246,0) 70%)"></div>
+    <div class="absolute -bottom-40 right-0 h-[600px] w-[800px] rounded-full blur-3xl opacity-20"
+         style="background: radial-gradient(40% 40% at 50% 50%, #8b5cf6 0%, rgba(139,92,246,0) 70%)"></div>
+  </div>
 
-    <div class="mt-6 grid gap-4 sm:grid-cols-2">
-      <a href="/tickets" class="rounded-xl border border-zinc-800 bg-zinc-900 p-4 hover:bg-zinc-800 transition">
-        <div class="text-sm text-zinc-400">Module</div>
-        <div class="text-lg font-medium">Tickets</div>
-        <div class="mt-2 text-xs text-zinc-500">Configurer salon logs, rôles autorisés, couleur d’embed…</div>
-      </a>
-      <a href="#" class="rounded-xl border border-zinc-800 bg-zinc-900 p-4 opacity-50 cursor-not-allowed">
-        <div class="text-sm text-zinc-400">Bientôt</div>
-        <div class="text-lg font-medium">Suggestions</div>
-      </a>
+  <!-- hero -->
+  <div class="mx-auto max-w-6xl px-4 pt-10 pb-12">
+    <div class="flex flex-col gap-8 md:flex-row md:items-center md:justify-between">
+      <div class="max-w-2xl">
+        <div class="inline-flex items-center gap-2 rounded-full border border-zinc-800 bg-zinc-900/70 px-3 py-1 text-xs text-zinc-300">
+          <span class="h-1.5 w-1.5 rounded-full bg-wolf-primary"></span> Wolf • Panel
+        </div>
+        <h1 class="mt-4 text-4xl font-bold tracking-tight sm:text-5xl">
+          Configure <span class="text-wolf-primary">Wolf</span> sans prise de tête
+        </h1>
+        <p class="mt-3 text-zinc-400">
+          Gère tes modules (Tickets, Suggestions, Candidatures, Permissions…) depuis une interface claire,
+          inspirée des dashboards modernes.
+        </p>
+        <div class="mt-6 flex flex-wrap gap-3">
+          <a href="/tickets"
+             class="rounded-xl bg-wolf-primary px-5 py-2.5 text-sm font-medium text-white hover:opacity-90">Configurer les tickets</a>
+          <a href="#modules"
+             class="rounded-xl border border-zinc-700 px-5 py-2.5 text-sm text-zinc-200 hover:bg-zinc-800">Voir les modules</a>
+        </div>
+      </div>
+
+      <!-- card rapide (server selector mock) -->
+      <div class="w-full max-w-md rounded-2xl border border-zinc-800 bg-zinc-900/60 p-5 backdrop-blur">
+        <h3 class="mb-3 text-sm font-medium text-zinc-300">Serveur à configurer</h3>
+        <div class="grid gap-3">
+          <input placeholder="Entre l’ID du serveur"
+                 class="w-full rounded-lg border border-zinc-700 bg-zinc-950 px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-wolf-primary" />
+          <button class="rounded-lg bg-wolf-primary px-4 py-2 text-sm font-medium text-white hover:opacity-90">
+            Ouvrir la configuration
+          </button>
+          <p class="text-xs text-zinc-500">Astuce : tu pourras lier ici une liste de tes guilds via OAuth Discord.</p>
+        </div>
+      </div>
     </div>
   </div>
 
-  <aside class="rounded-2xl border border-zinc-800 bg-zinc-900 p-6 shadow">
-    <h2 class="text-lg font-semibold mb-3">Raccourcis</h2>
-    <ul class="text-sm text-zinc-300 space-y-2">
-      <li>• <a href="/tickets" class="text-wolf-primary hover:underline">Configurer les tickets</a></li>
-    </ul>
-  </aside>
-</section>
+  <!-- features -->
+  <div id="modules" class="mx-auto max-w-6xl px-4 pb-16">
+    <div class="grid gap-6 md:grid-cols-3">
+      <!-- Tickets -->
+      <a href="/tickets"
+         class="group rounded-2xl border border-zinc-800 bg-zinc-900/50 p-5 backdrop-blur transition hover:border-zinc-700 hover:bg-zinc-900">
+        <div class="mb-3 inline-flex h-9 w-9 items-center justify-center rounded-lg bg-zinc-800/80 group-hover:bg-zinc-800">
+          📨
+        </div>
+        <h3 class="text-lg font-semibold">Tickets</h3>
+        <p class="mt-1 text-sm text-zinc-400">
+          Définis le salon de logs, les rôles staff, les couleurs d’embed, etc.
+        </p>
+        <div class="mt-3 text-sm text-wolf-primary">Configurer →</div>
+      </a>
 
+      <!-- Suggestions -->
+      <a href="#"
+         class="group rounded-2xl border border-zinc-800 bg-zinc-900/50 p-5 backdrop-blur transition hover:border-zinc-700 hover:bg-zinc-900">
+        <div class="mb-3 inline-flex h-9 w-9 items-center justify-center rounded-lg bg-zinc-800/80 group-hover:bg-zinc-800">
+          💡
+        </div>
+        <h3 class="text-lg font-semibold">Suggestions</h3>
+        <p class="mt-1 text-sm text-zinc-400">
+          Canal cible, statut auto, réactions, workflow… (à venir dans ce panel)
+        </p>
+        <div class="mt-3 text-sm text-zinc-500">Bientôt</div>
+      </a>
+
+      <!-- Candidatures -->
+      <a href="#"
+         class="group rounded-2xl border border-zinc-800 bg-zinc-900/50 p-5 backdrop-blur transition hover:border-zinc-700 hover:bg-zinc-900">
+        <div class="mb-3 inline-flex h-9 w-9 items-center justify-center rounded-lg bg-zinc-800/80 group-hover:bg-zinc-800">
+          📝
+        </div>
+        <h3 class="text-lg font-semibold">Candidatures</h3>
+        <p class="mt-1 text-sm text-zinc-400">
+          Formulaires, salons de review, rôles assignés… (à venir)
+        </p>
+        <div class="mt-3 text-sm text-zinc-500">Bientôt</div>
+      </a>
+    </div>
+  </div>
+</section>
