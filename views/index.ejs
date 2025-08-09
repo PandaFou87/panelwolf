@@ -1,10 +1,10 @@
-<!-- Home • Dark / Modern / Glassy -->
+<!-- Home • Dark / Modern / Glassy • accent rouge -->
 <section class="relative overflow-hidden">
-  <!-- bg gradient -->
+  <!-- fond dégradé -->
   <div class="pointer-events-none absolute inset-0 -z-10">
-    <div class="absolute -top-40 left-1/2 -translate-x-1/2 h-[700px] w-[1200px] rounded-full blur-3xl opacity-20"
-         style="background: radial-gradient(40% 40% at 50% 50%, #2b82f6 0%, rgba(43,130,246,0) 70%)"></div>
-    <div class="absolute -bottom-40 right-0 h-[600px] w-[800px] rounded-full blur-3xl opacity-20"
+    <div class="absolute -top-48 left-1/2 -translate-x-1/2 h-[720px] w-[1200px] rounded-full blur-3xl opacity-20"
+         style="background: radial-gradient(40% 40% at 50% 50%, var(--accent) 0%, rgba(239,68,68,0) 70%)"></div>
+    <div class="absolute -bottom-48 right-0 h-[640px] w-[860px] rounded-full blur-3xl opacity-20"
          style="background: radial-gradient(40% 40% at 50% 50%, #8b5cf6 0%, rgba(139,92,246,0) 70%)"></div>
   </div>
 
@@ -12,45 +12,46 @@
   <div class="mx-auto max-w-6xl px-4 pt-10 pb-12">
     <div class="flex flex-col gap-8 md:flex-row md:items-center md:justify-between">
       <div class="max-w-2xl">
-        <div class="inline-flex items-center gap-2 rounded-full border border-zinc-800 bg-zinc-900/70 px-3 py-1 text-xs text-zinc-300">
-          <span class="h-1.5 w-1.5 rounded-full bg-wolf-primary"></span> Wolf • Panel
+        <div class="chip inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs text-zinc-300">
+          <span class="h-1.5 w-1.5 rounded-full" style="background: var(--accent)"></span>
+          Wolf • Panel
         </div>
         <h1 class="mt-4 text-4xl font-bold tracking-tight sm:text-5xl">
-          Configure <span class="text-wolf-primary">Wolf</span> sans prise de tête
+          Configure <span style="color: var(--accent)">Wolf</span> sans prise de tête
         </h1>
         <p class="mt-3 text-zinc-400">
           Gère tes modules (Tickets, Suggestions, Candidatures, Permissions…) depuis une interface claire,
           inspirée des dashboards modernes.
         </p>
         <div class="mt-6 flex flex-wrap gap-3">
-          <a href="/tickets"
-             class="rounded-xl bg-wolf-primary px-5 py-2.5 text-sm font-medium text-white hover:opacity-90">Configurer les tickets</a>
-          <a href="#modules"
-             class="rounded-xl border border-zinc-700 px-5 py-2.5 text-sm text-zinc-200 hover:bg-zinc-800">Voir les modules</a>
+          <a href="/tickets" class="btn-accent rounded-xl px-5 py-2.5 text-sm font-medium hover:opacity-90">Configurer les tickets</a>
+          <a href="#modules" class="rounded-xl border border-zinc-700 px-5 py-2.5 text-sm text-zinc-200 hover:bg-zinc-800">Voir les modules</a>
         </div>
       </div>
 
-      <!-- card rapide (server selector mock) -->
-      <div class="w-full max-w-md rounded-2xl border border-zinc-800 bg-zinc-900/60 p-5 backdrop-blur">
+      <!-- sélecteur de serveur (mock) -->
+      <div class="w-full max-w-md card p-5">
         <h3 class="mb-3 text-sm font-medium text-zinc-300">Serveur à configurer</h3>
         <div class="grid gap-3">
           <input placeholder="Entre l’ID du serveur"
-                 class="w-full rounded-lg border border-zinc-700 bg-zinc-950 px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-wolf-primary" />
-          <button class="rounded-lg bg-wolf-primary px-4 py-2 text-sm font-medium text-white hover:opacity-90">
+                 class="w-full rounded-lg border border-zinc-700 bg-zinc-950 px-3 py-2 text-sm outline-none focus:ring-2"
+                 style="--tw-ring-color: var(--accent)" id="guildInput" />
+          <button class="btn-accent rounded-lg px-4 py-2 text-sm font-medium"
+                  onclick="const g=document.getElementById('guildInput').value.trim(); if(!g) return alert('Entre un guildId'); location.href='/app/guild?guildId='+encodeURIComponent(g)">
             Ouvrir la configuration
           </button>
-          <p class="text-xs text-zinc-500">Astuce : tu pourras lier ici une liste de tes guilds via OAuth Discord.</p>
+          <p class="text-xs text-zinc-500">Astuce : plus tard on pourra connecter OAuth Discord pour choisir parmi tes guilds.</p>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- features -->
+  <!-- modules -->
   <div id="modules" class="mx-auto max-w-6xl px-4 pb-16">
     <div class="grid gap-6 md:grid-cols-3">
       <!-- Tickets -->
       <a href="/tickets"
-         class="group rounded-2xl border border-zinc-800 bg-zinc-900/50 p-5 backdrop-blur transition hover:border-zinc-700 hover:bg-zinc-900">
+         class="group card p-5 transition hover:border-zinc-700 hover:bg-zinc-900">
         <div class="mb-3 inline-flex h-9 w-9 items-center justify-center rounded-lg bg-zinc-800/80 group-hover:bg-zinc-800">
           📨
         </div>
@@ -58,34 +59,15 @@
         <p class="mt-1 text-sm text-zinc-400">
           Définis le salon de logs, les rôles staff, les couleurs d’embed, etc.
         </p>
-        <div class="mt-3 text-sm text-wolf-primary">Configurer →</div>
+        <div class="mt-3 text-sm" style="color: var(--accent)">Configurer →</div>
       </a>
 
       <!-- Suggestions -->
-      <a href="#"
-         class="group rounded-2xl border border-zinc-800 bg-zinc-900/50 p-5 backdrop-blur transition hover:border-zinc-700 hover:bg-zinc-900">
+      <a href="/suggestions"
+         class="group card p-5 transition hover:border-zinc-700 hover:bg-zinc-900">
         <div class="mb-3 inline-flex h-9 w-9 items-center justify-center rounded-lg bg-zinc-800/80 group-hover:bg-zinc-800">
           💡
         </div>
         <h3 class="text-lg font-semibold">Suggestions</h3>
         <p class="mt-1 text-sm text-zinc-400">
-          Canal cible, statut auto, réactions, workflow… (à venir dans ce panel)
-        </p>
-        <div class="mt-3 text-sm text-zinc-500">Bientôt</div>
-      </a>
-
-      <!-- Candidatures -->
-      <a href="#"
-         class="group rounded-2xl border border-zinc-800 bg-zinc-900/50 p-5 backdrop-blur transition hover:border-zinc-700 hover:bg-zinc-900">
-        <div class="mb-3 inline-flex h-9 w-9 items-center justify-center rounded-lg bg-zinc-800/80 group-hover:bg-zinc-800">
-          📝
-        </div>
-        <h3 class="text-lg font-semibold">Candidatures</h3>
-        <p class="mt-1 text-sm text-zinc-400">
-          Formulaires, salons de review, rôles assignés… (à venir)
-        </p>
-        <div class="mt-3 text-sm text-zinc-500">Bientôt</div>
-      </a>
-    </div>
-  </div>
-</section>
+          Canal cible, statut auto, réactions, workflow…
